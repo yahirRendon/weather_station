@@ -1,0 +1,294 @@
+
+/*
+	Author: Yahir Rendon 
+    Class: CS499
+    Project: Weather Dashboard Front-End
+
+    CSS style sheet
+*/
+:root {
+	/*https://www.canva.com/learn/website-color-schemes/*/
+  --storm: #112432;
+  --jean: #5e7783;
+  --wine: #4d1635 ;
+  --lavender: #9e9199 ;
+  --softGrey: #d0d1d3;
+
+  /* --light: #eae7dc;
+  --medium: #d8c3a5;
+  --dark: #8e8d8a;
+  --bright: #e85a4f;
+  --third: #e98074; */
+
+  --light: #FBE8A6;
+  --medium: #B4DFE5;
+  --dark: #303C6C;
+  --bright: #F4976C;
+  --third: #D2FDFF;
+
+}
+
+* {
+	/*font-family: 'Open Sans', sans-serif;*/
+	font-family: 'Montserrat', sans-serif;
+}
+
+header{
+	font-size: xx-large;
+	padding: 20px;
+	text-align: center;
+}
+
+.changeDateCont {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	text-align: center;
+	margin: 1em;
+
+}
+
+.element_main_quick {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	border-radius: 5px;
+	color: var(--third);
+	text-align: center;
+	font-size: medium;
+	background-color: var(--dark);
+}
+
+.elements_cities {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	border-radius: 5px;
+	text-align: center;
+	font-size: x-large;
+
+}
+
+
+.quick_read {
+	color: var(--bright);
+	font-size: x-large;
+}
+
+.element_main_dash {
+	border-radius: 5px;
+	border: 3px solid var(--light);
+	background-color: var(--light);
+}
+
+/* Navigation areas */
+.menu{grid-area: menu; min-width: 200px;}
+.cities{grid-area: cities; display: none; min-width: 150px; font-size: x-large;}
+.about{grid-area: about; display:none; min-width: 150px; font-size: x-large;}
+.name{grid-area: name; text-align: right; min-width: 200px;}
+
+/* change dates areas*/
+.changDates_a {grid-area: changeDatesA;} .changDates_b {grid-area: changeDatesB;} .changDates_a {grid-area: changeDatesC;} 
+.changDates_c {grid-area: changeDatesC;} .changDates_d {grid-area: changeDatesD;} .changDates_e {grid-area: changeDatesE;} 
+
+/* Quick Read areas */
+.content_quick_a { grid-area: cqa;} .content_quick_b { grid-area: cqb;} .content_quick_c { grid-area: cqc;}
+.content_quick_d { grid-area: cqd;} .content_quick_e { grid-area: cqe;} .content_quick_f { grid-area: cqf;}
+
+/* Dashboard areas */
+.content_dash_a { grid-area: cda;} .content_dash_b { grid-area: cdb;} .content_dash_bb { grid-area: cdbb;} 
+.content_dash_c { grid-area: cdc;} .content_dash_cc { grid-area: cdcc;} .content_dash_d { grid-area: cdd;} 
+.content_dash_e { grid-area: cde;} .content_dash_f { grid-area: cdf;} .content_dash_g { grid-area: cdg;}
+
+/* Cities area cities.html */
+.ca { grid-area: ca; text-align: right;} .ca1 { grid-area: ca1; } .cb { grid-area: cb; text-align: right; }
+.cb1 { grid-area: cb1; } .cc { grid-area: cc; text-align: right;} .cc1 { grid-area: cc1; }
+
+/* Footer areas */
+.city_a{grid-area: city_a;}
+.city_b{grid-area: city_b;}
+.city_c{grid-area: city_c;}
+
+
+/* Navigation wrappers*/
+.wrapper_nav {
+	display: grid;
+	/*grid-gap: .5em;*/
+	/*height: 98vh;*/
+	 margin-left: 5%; 
+	 margin-right: 5%; 
+	grid-template-columns: auto auto;
+	grid-template-areas: "menu name" "cities cities" "about about";
+	font-size: xx-large;
+}
+
+/* Footer wrapper*/
+.wrapper_footer {
+	display: grid;
+	margin: 2em;
+	grid-auto-columns: auto auto auto;
+	grid-template-areas: "city_a city_b city_c";
+	text-align: center;
+}
+
+.wrapper_nav a, .wrapper_footer a, .wrapper_cities a {
+	color: black;
+	text-decoration: none;
+}
+
+.wrapper_nav a:hover, .wrapper_footer a:hover, .wrapper_cities a:hover{
+	color: var(--bright);
+	cursor: pointer;
+}
+
+/*Change dates wrapper*/
+.wrapper_changeDates {
+	grid-area: changeDateW;
+	display: grid;
+	grid-gap: 10px;
+	margin-left: 5%; 
+	margin-right: 5%; 
+	grid-template-columns: 100%;
+	grid-template-areas: "changeDatesA" "changeDatesB" "changeDatesC" "changeDatesD" 
+	"changeDatesE";
+}
+
+/* Quick Wrapper */
+.wrapper_main_quick {
+	grid-area: wmq;
+	display: grid;
+	grid-gap: 10px;
+	margin-left: 5%; 
+	 margin-right: 5%; 
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 150px 150px 150px;
+	grid-template-areas:  "cqa cqb" "cqc cqd" "cqe cqf" ;
+}
+
+/* Dashboard wrapper */
+.wrapper_main_dash {
+	grid-area: wmd;
+	display: grid;
+	grid-gap: 10px;
+	margin-left: 5%; 
+	margin-right: 5%; 
+	grid-template-columns: 100%;
+	grid-template-rows: 300px 300px auto 300px auto 300px 300px auto auto;
+	grid-template-areas: "cda" "cdb" "cdbb" "cdc" "cdcc" "cdd"  "cde" "cdf" "cdg";
+}
+
+/*Cities wrapper*/
+.wrapper_cities {
+	min-height: 50vh;
+	grid-area: wc;
+	display: grid;
+	grid-row-gap: 2em;
+	grid-column-gap: 1em;
+	margin-left: 5%; 
+	margin-right: 5%; 
+	grid-template-columns: 100%;
+	grid-template-areas: "ca" "ca1" "cb" "cb1" "cc" "cc1"
+}
+
+.dropDownTemp,
+.dropDownHumid {
+	width: 100%;
+}
+
+.changeDataDates {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	text-align: center;
+	margin: 1em;
+}
+
+.searchHolder {
+	text-align: center;
+	margin: 1em;
+}
+
+.map-responsive{
+	overflow:hidden;
+	margin-left: 5%;
+	margin-right: 5%;
+    padding-bottom:50%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+.about_body {
+	margin-right: 10%;
+	margin-left: 10%;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	text-align: center;
+	text-align: center;
+}
+
+#prototype {
+	margin-right: 10%;
+	margin-left: 10%;
+	width: 80vw;
+	object-fit: cover;
+}
+
+/* Display for larger screens */
+ @media only screen and (min-width: 700px)   {
+
+ 	/*Change dates wrapper*/
+	.wrapper_changeDates {
+		grid-area: changeDateW;
+		display: grid;
+		grid-gap: 10px;
+		margin-left: 5%; 
+		margin-right: 5%; 
+		grid-template-columns: auto;
+		grid-template-areas: "changeDatesA changeDatesB changeDatesC changeDatesD changeDatesE";
+	}
+
+ 	/* Quick Wrapper */
+	.wrapper_main_quick {
+		grid-area: wmq;
+		display: grid;
+		grid-gap: 10px;
+		margin-left: 5%; 
+		margin-right: 5%; 
+		grid-template-columns: 33% 33% 33%;
+		grid-template-rows: 150px 150px;
+		grid-template-areas:  "cqa cqb cqc" "cqd cqe cqf" ;
+	}
+
+	/* Dashboard wrapper */
+	.wrapper_main_dash {
+		grid-area: wmd;
+		display: grid;
+		grid-gap: 10px;
+		margin-left: 5%; 
+		margin-right: 5%; 
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 300px 300px auto 300px auto;
+		grid-template-areas: "cda cda" "cdb cdc" "cdbb cdcc" "cdd cde" "cdf cdg";
+	}
+
+		/*Cities wrapper*/
+	.wrapper_cities {
+		min-height: 50vh;
+		grid-area: wc;
+		display: grid;
+		grid-row-gap: 2em;
+		grid-column-gap: 1em;
+		margin-left: 5%; 
+		margin-right: 5%; 
+		grid-template-columns: 50% 50%;
+		grid-template-areas: "ca ca1" "cb cb1" "cc cc1";
+	}   
+  }

@@ -1,0 +1,162 @@
+<!-- 
+    Author: Yahir Rendon 
+    Class: CS499
+    Project: Weather Dashboard Front-End
+
+    Home
+ -->
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Weather Station</title>
+    <meta name="Dashboard for weather data" content="Weather Station">
+    <meta name="Yahir" content="WeatherSite">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+</head>
+
+<body id="body_index">
+
+    <!-- Navigation Menu -->
+    <nav class="wrapper_nav">
+        <div class="elements_nav menu" id="menuButton" title="Display Menu">
+            <a href="javascript:void(0);">&#9776</a>
+        </div>
+        <div class="elements_nav cities" title="view more cities">
+            <a href="cities.html">Cities</a>
+        </div>
+        <div class="elements_nav about" title="learn more">
+            <a href="about.html">About</a>
+        </div>
+        <div class="elements_nav name" title="current city">
+            <a href="index.html"></a>
+        </div>
+    </nav>
+
+    
+    <!-- Quick dashboard -->
+    <header id="title_quickRead">Quick Readings</header>
+    <div class="changeDateCont">
+        <div class="wrapper_changeDates">
+            <div class="changeDates_a">Display data from</div>
+            <div class="changeDates_b">
+                <input type="text" id="startDateInput" placeholder="MM/DD/YYYY">
+            </div>
+            <div class="changeDates_c"> to </div>
+            <div class="changeDates_d">
+                <input type="text" id="endDateInput" placeholder="MM/DD/YYYY">
+            </div>
+            <div class="changeDates_e">
+                <button type="button" id="getDatesBtn">Update</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="wrapper_main_quick">
+        <div class="element_main_quick content_quick_a">
+            <div> Most Recent Update:
+                <div id="lastUpdate" class="quick_read"></div>
+            </div>
+        </div>
+
+        <div class="element_main_quick content_quick_b">
+            <div>Most Recent Temperature:
+                <div id="lastTemp" class="quick_read"></div>	
+            </div>
+        </div>
+        <div class="element_main_quick content_quick_c">
+            <div >Most Recent Humidity:
+                <div class="quick_read" id="lastHumid"></div>
+            </div>
+        </div>
+        <div class="element_main_quick content_quick_d">
+            <div >Avg. Light Intensity:
+                <div id="avgLight" class="quick_read"></div>
+            </div>
+        </div>
+        <div class="element_main_quick content_quick_e">
+            <div>Avg. Temperature:
+                <div id="avgTemp" class="quick_read"></div>
+            </div>
+        </div>
+        <div class="element_main_quick content_quick_f">
+            <div>Avg. Humidity:
+                <div id="avgHumid" class="quick_read"></div>
+            </div>
+        </div>
+    </div>
+        
+    <!-- Main Dashboard -->
+    <header>Dashboard</header>
+    <div class="wrapper_main_dash">
+        <div id="containerTempHumid" class="element_main_dash content_dash_a" title="Plotting Humidity vs Temperature">
+        Humidity and Temperature</div>
+        <div id="containerTemp" class="element_main_dash content_dash_b">Temperature</div>
+        <div id="containerSortTemp" class="element_main_dash content_dash_bb">
+            <select class="dropDownTemp" id="userSelectionTemp"> 
+                <option value="1" selected>Original</option> 
+                <option value="2">Reverse</option> 
+                <option value="3">Sort Low-High</option> 
+                <option value="4">Sort High-Low</option> 
+            </select> 
+        </div>              
+        <div id="containerHumid" class="element_main_dash content_dash_c">Humidity</div>
+        <div id="containerSortHumid" class="element_main_dash content_dash_cc">
+            <select class="dropDownHumid" id="userSelectionHumid"> 
+                <option value="1" selected>Original</option> 
+                <option value="2">Reverse</option> 
+                <option value="3">Sort Low-High</option> 
+                <option value="4">Sort High-Low</option> 
+            </select>  
+        </div>
+        <div id="containerCategory" class="element_main_dash content_dash_d">Category Chart</div>
+        <div id="containerLight" class="element_main_dash content_dash_e">Light Intensity</div>
+        <div class="element_main_dash content_dash_f">
+            <div class="searchHolder">
+            <p>Search to see if a temperature is within the dataset</p>
+            
+            <input type="number" id="userTempValue" placeholder="enter temperature">
+            <button type="button" id="getTempSearchValue">Search</button>
+            </div>
+        </div>
+
+        <div class="element_main_dash content_dash_g">
+            <div class="searchHolder">
+            <p>Search to get all temperature occurances within the dataset</p>
+            
+            <input type="number" id="userTempValueAll" placeholder="enter temperature">
+            <button type="button" id="getTempSearchValueAll">Search</button>
+            </div>
+        </div>     
+    </div>
+
+    <!-- Display device on map -->
+    <header>Device Location</header>
+    <div class="map-responsive">
+        <iframe id="mapSource" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2630.4073589444906!2d-122.50228258414916!3d48.75501661593345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5485a3a8ec9ac147%3A0xe89887a8e2b60f77!2s2600%20N%20Harbor%20Loop%20Dr%2C%20Bellingham%2C%20WA%2098225!5e0!3m2!1sen!2sus!4v1608688949669!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+
+    <!-- footer navigation area -->
+    <footer class="wrapper_footer">
+        <div class="elements_footer city_a">
+            <a>Bellingham, WA</a>
+        </div>
+        <div class="elements_footer city_b">
+            <a>Dallas, TX</a>
+        </div>
+        <div class="elements_footer city_c">
+            <a>New York, NY</a>
+        </div>
+    </footer>
+    
+    <!-- Connect to JQuery and CanvasJS -->
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="canvas/jquery.canvasjs.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
