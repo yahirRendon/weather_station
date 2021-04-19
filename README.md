@@ -2,6 +2,8 @@
 
 Utilizing a RaspberryPi and a GrovePi Hat/sensors I wrote a Python script that stored temperature, humidity, light sensitivity, and timestamp data into a JSON file every 30 minutes. This data is then feed into a local web dashboard for visual display. The project using CanvasJS a Javascript library for creating charts and graphs, JQuery, and the GrovePi Python library.
 
+This project was used as an artifact for my capstone project at SNHU to showcase my software design and engineering abilities as well as my ability to use algorithms and data structures. Relevant images and code snipts as examples are listed below:
+
 #### Quick Dashboard
 The quick dashboard section holds useful info from the dataset
 
